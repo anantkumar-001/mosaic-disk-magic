@@ -15,7 +15,7 @@ export const Route = createFileRoute('/')({
   ] }), component: Index,
 });
 /** Latest desktop release; the download links below always serve the newest one. */
-const VERSION = '0.2.0';
+const VERSION = '0.2.1';
 
 const DOWNLOADS: Record<string, string> = {
   Mac: 'https://github.com/antcybersec/diskMon/releases/latest/download/diskMon-macos-universal.dmg',
