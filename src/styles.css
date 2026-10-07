@@ -142,3 +142,30 @@
     color: var(--color-foreground);
   }
 }
+
+:root {
+  --background: oklch(0.13 0.012 60);
+  --foreground: oklch(0.95 0.01 80);
+  --card: oklch(0.17 0.014 60);
+  --card-foreground: oklch(0.95 0.01 80);
+  --popover: oklch(0.17 0.014 60);
+  --popover-foreground: oklch(0.95 0.01 80);
+  --primary: oklch(0.72 0.13 55);
+  --primary-foreground: oklch(0.14 0.02 60);
+  --secondary: oklch(0.22 0.015 60);
+  --secondary-foreground: oklch(0.95 0.01 80);
+  --muted: oklch(0.22 0.015 60);
+  --muted-foreground: oklch(0.68 0.02 70);
+  --accent: oklch(0.26 0.03 55);
+  --accent-foreground: oklch(0.95 0.01 80);
+  --border: oklch(0.28 0.015 60);
+  --input: oklch(0.28 0.015 60);
+  --ring: oklch(0.72 0.13 55);
+  --glow: oklch(0.72 0.13 55 / 0.35);
+}
+@theme inline {
+  --color-glow: var(--glow);
+  --font-display: "Instrument Serif", serif;
+  --font-sans: "Manrope", system-ui, sans-serif;
+}
+body { font-family: var(--font-sans); background: var(--background); color: var(--foreground); }
