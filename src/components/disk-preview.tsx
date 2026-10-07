@@ -24,7 +24,7 @@ export function DiskPreview() {
       <div className="traffic-lights"><i /><i /><i /></div>
       <div className="sidebar-brand"><span className="brand-mark small"><HardDrive /></span> diskMon</div>
       <nav aria-label="diskMon preview">{nav.map(item => <Button key={item.name} variant="ghost" className={`preview-nav ${active === item.name ? 'is-active' : ''}`} onClick={() => setActive(item.name)}><item.icon /> <span>{item.name}</span></Button>)}</nav>
-      <div className="sidebar-bottom"><span className="status-dot" /> 412 PIDs sampled <span>v0.1</span></div>
+      <div className="sidebar-bottom"><span className="status-dot" /> 412 PIDs sampled <span>v0.1.1</span></div>
     </aside>
     <div className="disk-main">
       <div className="window-toolbar"><span>{active}</span><span className="preview-label">INTERACTIVE PREVIEW</span><span className="drive-tag"><HardDrive size={12} /> This Mac · 32 GB <ChevronDown size={12} /></span></div>
