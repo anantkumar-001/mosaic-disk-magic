@@ -1,9 +1,65 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect x="2" y="2" width="60" height="60" rx="14" fill="#1d1c1a" stroke="#f08a3c" stroke-width="3"/>
-  <g transform="translate(14 14) scale(1.5)" fill="none" stroke="#f08a3c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M10 16h.01"/>
-    <path d="M2.212 11.577a2 2 0 0 0-.212.896V18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-5.527a2 2 0 0 0-.212-.896L18.55 5.11A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/>
-    <path d="M21.946 12.013H2.054"/>
-    <path d="M6 16h.01"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <!-- Background Canvas Gradient -->
+    <radialGradient id="bgGlow" cx="50%" cy="30%" r="80%">
+      <stop offset="0%" stop-color="#1e1e24" />
+      <stop offset="60%" stop-color="#121215" />
+      <stop offset="100%" stop-color="#09090b" />
+    </radialGradient>
+
+    <!-- Metallic Edge Stroke -->
+    <linearGradient id="edgeGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.18" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.03" />
+    </linearGradient>
+
+    <!-- Amber Glow -->
+    <radialGradient id="amberGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f2ae3d" stop-opacity="0.35" />
+      <stop offset="100%" stop-color="#f2ae3d" stop-opacity="0" />
+    </radialGradient>
+
+    <linearGradient id="slice1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f5ba50" />
+      <stop offset="100%" stop-color="#f08a3c" />
+    </linearGradient>
+
+    <linearGradient id="slice2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e06228" />
+      <stop offset="100%" stop-color="#b83818" />
+    </linearGradient>
+
+    <linearGradient id="trackGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2c2c34" />
+      <stop offset="100%" stop-color="#1b1b22" />
+    </linearGradient>
+  </defs>
+
+  <!-- iOS / macOS Squircle Base -->
+  <rect x="16" y="16" width="480" height="480" rx="112" ry="112" fill="url(#bgGlow)" stroke="url(#edgeGrad)" stroke-width="2" />
+
+  <!-- Ambient focal glow behind the disk -->
+  <circle cx="256" cy="256" r="170" fill="url(#amberGlow)" />
+
+  <!-- ONE SINGLE CENTRAL OBJECT: The Minimalist Segmented Disk Platter -->
+  <g transform="translate(256, 256)">
+    <!-- Base track ring: Unallocated / Available disk space -->
+    <circle cx="0" cy="0" r="140" fill="none" stroke="url(#trackGrad)" stroke-width="48" stroke-linecap="round" />
+
+    <!-- Secondary Sector (Warm Crimson/Orange - System / Cached space) -->
+    <!-- Arc from 130 deg to 230 deg -->
+    <path d="M -90 107 A 140 140 0 0 1 -140 0" fill="none" stroke="url(#slice2)" stroke-width="48" stroke-linecap="round" />
+
+    <!-- Primary Active Sector (Luminous Amber - Heavy Workloads / Scanned Memory) -->
+    <!-- Sweeping prominent arc from -60 deg to 90 deg -->
+    <path d="M 70 -121 A 140 140 0 0 1 0 140" fill="none" stroke="url(#slice1)" stroke-width="52" stroke-linecap="round" />
+
+    <!-- Inner Core Hub (Deep Titanium Spindle) -->
+    <circle cx="0" cy="0" r="62" fill="#15151a" stroke="#ffffff" stroke-opacity="0.1" stroke-width="3" />
+    
+    <!-- Center Live Diagnostic Jewel -->
+    <circle cx="0" cy="0" r="22" fill="#f2ae3d" />
+    <circle cx="0" cy="0" r="14" fill="#fff5e0" />
   </g>
 </svg>
+

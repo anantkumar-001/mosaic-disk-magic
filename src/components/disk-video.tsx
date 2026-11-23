@@ -157,3 +157,4 @@ export function DiskVideo({ version, onSwitchToInteractive }: DiskVideoProps) {
     </div>
   );
 }
+
