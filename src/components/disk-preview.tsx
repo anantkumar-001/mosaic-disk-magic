@@ -1,5 +1,5 @@
 import { useEffect, useLayoutEffect, useMemo, useRef, useState, type KeyboardEvent, type ReactNode } from 'react';
-import { ChevronLeft, CornerDownLeft } from 'lucide-react';
+import { ChevronLeft, CornerDownLeft, Play } from 'lucide-react';
 
 /*
  * An interactive replica of the diskMon desktop app, filled with sample data.
@@ -122,7 +122,7 @@ const HEADER_H = 20;
 const MAX_CHILDREN = 24;
 const tint = (color: string, pct: number) => `color-mix(in srgb, ${color} ${pct}%, #121110)`;
 
-export function DiskPreview({ version }: { version: string }) {
+export function DiskPreview({ version, onWatchVideo }: { version: string; onWatchVideo?: () => void }) {
   const [metric, setMetric] = useState<Metric>('mem');
   const [focus, setFocus] = useState<string | null>(null);
   const [selection, setSelection] = useState<Selection>({ kind: 'workload', id: 'chrome' });
@@ -276,6 +276,11 @@ export function DiskPreview({ version }: { version: string }) {
         <input ref={filterRef} className="dm-filter" value={filter} onChange={e => setFilter(e.target.value)} placeholder="Filter  /" aria-label="Filter apps and processes" />
         <button type="button" className={`dm-btn ${paused ? 'dm-resume' : ''}`} title={paused ? 'Resume live updates (P)' : 'Freeze the view on the current snapshot (P)'} onClick={togglePause}>{paused ? 'Resume' : 'Pause'}</button>
         <button type="button" className="dm-btn dm-export" title="Save a Markdown incident report to your Downloads folder (E)" onClick={exportReport}>Export report</button>
+        {onWatchVideo && (
+          <button type="button" className="dm-btn" title="Watch full 4K video walkthrough" onClick={onWatchVideo} style={{ display: 'inline-flex', alignItems: 'center', gap: 5 }}>
+            <Play size={10} fill="currentColor" /> 4K Walkthrough
+          </button>
+        )}
       </div>
     </div>
     <div className="dm-legend"><b>{mb(used)}</b><span className="dm-muted">· {PROCESS_COUNT} processes · {APP_COUNT} apps</span>
